@@ -1,29 +1,24 @@
-function login(input){
+function login(input) {
+    const username = input[0];
+    const password = username.split('').reverse().join('');
+    let attempts = 0;
+  
+    for (let i = 1; i < input.length; i++) {
+      if (input[i] === password) {
+        console.log(`User ${username} logged in.`);
+        return;
+      } else {
+        attempts++;
+        console.log('Incorrect password. Try again.');
+        if (attempts === 3) {
+          console.log(`User ${username} blocked!`);
+          return;
+        };
+      };
+    };
+  };
 
-    let attepmts =0;
-    let password = input[0];
-    
-    let reverse = ``;
-    
-    for(let i=1; i<=input.length; i ++){
-        
-        for(let j=input[i].length-1; j>=0; j--){
-            reverse= input[i][j];
-        }
-       
-        
-        if(i==password || reverse==password){
-            console.log(`User ${password} logged in.`)
-        }else{
-            console.log(`Incorect password. Try again.`);
-            attepmts++;
-        }
-        if(attepmts ==3){
-            console.log(`User ${password} blocked!`)
-            
-        }
-    }
-}
+login(['sunny', 'yhnus', 'sunnn', 'pass', 'logos', 'oops']);
 login(['Acer','login','go','let me in','recA']);
 login(['momo','omom']);
 login(['sunny','rainy','cloudy','sunny','notsunny']);
